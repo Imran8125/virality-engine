@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "aa123b3f-bdee-46d5-a35b-aba6fc2b4a55",
+		"name": "Virality Engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [{"key":"Content-Type","value":"application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"Alice\", \"isPremium\": false}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "users"]
+				}
+			}
+		},
+		{
+			"name": "Create Bot",
+			"request": {
+				"method": "POST",
+				"header": [{"key":"Content-Type","value":"application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Bot1\", \"personaDescription\": \"Helpful Bot\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/bots",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "bots"]
+				}
+			}
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [{"key":"Content-Type","value":"application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"authorId\": 1, \"isBot\": false, \"content\": \"Hello World!\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "posts"]
+				}
+			}
+		},
+		{
+			"name": "Add Comment",
+			"request": {
+				"method": "POST",
+				"header": [{"key":"Content-Type","value":"application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"authorId\": 1, \"isBot\": true, \"content\": \"Great post!\", \"parentCommentId\": null}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/1/comments",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "posts", "1", "comments"]
+				}
+			}
+		},
+		{
+			"name": "Like Post",
+			"request": {
+				"method": "POST",
+				"header": [{"key":"Content-Type","value":"application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"authorId\": 1, \"isBot\": false}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/1/like",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "posts", "1", "like"]
+				}
+			}
+		},
+		{
+			"name": "Get Post Stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/posts/1/stats",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "posts", "1", "stats"]
+				}
+			}
+		}
+	]
+}
